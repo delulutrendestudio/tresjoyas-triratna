@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triratna × Clancy Pink Punk × Vibe Coding</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Courier New", monospace;
+        background: #0a0a0a;
+        color: #ffffff;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Arcade neon background with intense grid */
+      .cyber-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          #000011 0%,
+          #1a0033 20%,
+          #330066 40%,
+          #ff006b 70%,
+          #00ffff 85%,
+          #ffff00 100%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .cyber-grid::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+            90deg,
+            rgba(0, 255, 255, 0.8) 2px,
+            transparent 2px
+          ),
+          linear-gradient(0deg, rgba(255, 0, 255, 0.6) 2px, transparent 2px);
+        background-size: 30px 30px;
+        transform: perspective(400px) rotateX(70deg);
+        transform-origin: bottom;
+        animation: gridPulse 2s ease-in-out infinite;
+        box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+      }
+
+      .cyber-grid::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          ellipse at center,
+          transparent 0%,
+          rgba(0, 0, 17, 0.9) 100%
+        );
+      }
+
+      @keyframes gridPulse {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: perspective(400px) rotateX(70deg) scale(1);
+          filter: brightness(1) saturate(1.5);
+        }
+        50% {
+          opacity: 1;
+          transform: perspective(400px) rotateX(70deg) scale(1.1);
+          filter: brightness(1.3) saturate(2);
+        }
+      }
+
+      /* Logo section */
+      .logo-section {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 4% 0 2% 0;
+        margin-top: 80px;
+      }
+
+      .clancy-logo {
+        width: 300px;
+        height: auto;
+        margin: 0 auto 2% auto;
+        display: block;
+      }
+
+      /* Main container */
+      .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2% 5% 4% 5%;
+      }
+
+      /* Header */
+      header {
+        text-align: center;
+        margin-bottom: 8%;
+        padding: 4% 0;
+      }
+
+      .glitch-title {
+        font-size: 3em;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        margin: 0 0 3% 0;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(45deg, #ff006b, #00ffff, #ffff00, #ff006b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(255, 0, 107, 0.8),
+          0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 255, 0, 0.4);
+        animation: neonGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes neonGlow {
+        0% {
+          filter: brightness(1) saturate(1.5);
+          text-shadow: 0 0 10px rgba(255, 0, 107, 0.8),
+            0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 255, 0, 0.4);
+        }
+        100% {
+          filter: brightness(1.3) saturate(2);
+          text-shadow: 0 0 15px rgba(255, 0, 107, 1),
+            0 0 30px rgba(0, 255, 255, 0.8), 0 0 45px rgba(255, 255, 0, 0.6),
+            0 0 60px rgba(255, 0, 255, 0.4);
+        }
+      }
+
+      .subtitle {
+        font-size: 1.3em;
+        margin: 3% 0;
+        opacity: 0.9;
+        font-style: italic;
+      }
+
+      .intro-text {
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin: 4% auto;
+        max-width: 900px;
+        padding: 3%;
+        border-left: 3px solid;
+        opacity: 0.95;
+      }
+
+      /* Section cards */
+      .section-card {
+        margin: 6% 0;
+        padding: 4%;
+        border: 3px solid;
+        border-radius: 12px;
+        position: relative;
+        backdrop-filter: blur(15px);
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.3),
+          inset 0 0 20px rgba(0, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .section-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 50px rgba(255, 0, 255, 0.6),
+          0 0 30px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(255, 255, 0, 0.2);
+        filter: brightness(1.1) saturate(1.3);
+      }
+
+      .section-card::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        border-radius: 12px;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 0, 255, 0.6),
+          rgba(0, 255, 255, 0.6),
+          rgba(255, 255, 0, 0.6),
+          rgba(255, 0, 255, 0.6)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+        animation: borderGlow 3s ease-in-out infinite;
+      }
+
+      .section-card:hover::before {
+        opacity: 0.4;
+      }
+
+      @keyframes borderGlow {
+        0%,
+        100% {
+          background: linear-gradient(
+            45deg,
+            rgba(255, 0, 255, 0.6),
+            rgba(0, 255, 255, 0.6),
+            rgba(255, 255, 0, 0.6),
+            rgba(255, 0, 255, 0.6)
+          );
+        }
+        50% {
+          background: linear-gradient(
+            45deg,
+            rgba(0, 255, 255, 0.8),
+            rgba(255, 255, 0, 0.8),
+            rgba(255, 0, 255, 0.8),
+            rgba(0, 255, 255, 0.8)
+          );
+        }
+      }
+
+      .section-title {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: 0 0 3% 0;
+        letter-spacing: 0.02em;
+      }
+
+      .section-subtitle {
+        font-size: 1.1em;
+        margin: 2% 0 3% 0;
+        opacity: 0.8;
+        font-style: italic;
+      }
+
+      .section-content {
+        font-size: 1em;
+        line-height: 1.8;
+        opacity: 0.9;
+      }
+
+      .section-content p {
+        margin: 2% 0;
+        padding: 2%;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-weight: bold;
+        backdrop-filter: blur(5px);
+      }
+
+      .section-content ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 3% 0;
+      }
+
+      .section-content li {
+        padding: 1.5% 0 1.5% 3%;
+        position: relative;
+      }
+
+      .section-content li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        font-size: 1.2em;
+      }
+
+      /* Refugio section */
+      .refugio-section {
+        margin: 8% 0;
+        padding: 5%;
+        border: 2px solid;
+        border-radius: 16px;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      .refugio-title {
+        font-size: 2.5em;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 0 4% 0;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .refugio-intro {
+        text-align: center;
+        font-size: 1.2em;
+        margin: 0 0 6% 0;
+        padding: 3%;
+        border-radius: 8px;
+        font-style: italic;
+        opacity: 0.95;
+      }
+
+      .refugio-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4%;
+        margin: 6% 0;
+      }
+
+      .refugio-card {
+        padding: 4%;
+        border: 2px solid;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      .refugio-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);
+      }
+
+      .refugio-card-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: 0 0 3% 0;
+        text-align: center;
+      }
+
+      .refugio-card-content {
+        font-size: 1em;
+        line-height: 1.7;
+      }
+
+      .refugio-card-content p {
+        margin: 2% 0;
+        padding: 2%;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-weight: bold;
+        backdrop-filter: blur(5px);
+      }
+
+      .refugio-card-content strong {
+        font-style: italic;
+        opacity: 0.9;
+      }
+
+      .refugio-meaning {
+        margin: 6% 0;
+        padding: 4%;
+        text-align: center;
+        border-radius: 12px;
+        border: 2px solid;
+      }
+
+      .refugio-meaning-title {
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 0 0 3% 0;
+      }
+
+      .refugio-meaning p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin: 2% 0;
+        padding: 2%;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-weight: bold;
+        backdrop-filter: blur(5px);
+      }
+
+      .refugio-practice {
+        margin: 6% 0;
+        padding: 4%;
+        border-radius: 12px;
+        border: 2px solid;
+      }
+
+      .refugio-practice-title {
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 0 0 3% 0;
+        text-align: center;
+      }
+
+      .refugio-practice-intro {
+        font-size: 1.1em;
+        text-align: center;
+        margin: 2% 0 3% 0;
+        font-style: italic;
+      }
+
+      .refugio-practice-list {
+        list-style: none;
+        padding: 0;
+        margin: 4% 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2%;
+      }
+
+      .refugio-practice-list li {
+        padding: 2%;
+        text-align: center;
+        font-size: 1em;
+        font-weight: 500;
+        border-radius: 8px;
+        border: 1px solid;
+        transition: all 0.3s ease;
+      }
+
+      .refugio-practice-list li:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 0, 255, 0.2);
+      }
+
+      .refugio-closing {
+        font-size: 1.1em;
+        text-align: center;
+        margin: 3% 0;
+        font-style: italic;
+        opacity: 0.9;
+      }
+
+      /* Puya section */
+      .puya-section {
+        margin: 8% 0;
+        padding: 5%;
+        border: 2px solid;
+        border-radius: 16px;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      .puya-title {
+        font-size: 2.2em;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 0 2% 0;
+        letter-spacing: 0.05em;
+      }
+
+      .puya-subtitle {
+        font-size: 1.4em;
+        text-align: center;
+        margin: 0 0 6% 0;
+        font-style: italic;
+        opacity: 0.9;
+      }
+
+      .puya-stages {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6%;
+        margin: 6% 0;
+      }
+
+      .puya-stage {
+        padding: 4%;
+        border: 2px solid;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .puya-stage:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 0, 255, 0.2);
+      }
+
+      .puya-stage-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3%;
+        gap: 2%;
+      }
+
+      .puya-stage-number {
+        font-size: 1.8em;
+        font-weight: bold;
+        min-width: 40px;
+        text-align: center;
+      }
+
+      .puya-stage-title {
+        font-size: 1.3em;
+        font-weight: bold;
+        flex: 1;
+      }
+
+      .puya-stage-arrow {
+        font-size: 1.5em;
+        opacity: 0.7;
+      }
+
+      .puya-stage-subtitle {
+        font-size: 1.1em;
+        font-style: italic;
+        margin: 2% 0 3% 0;
+        opacity: 0.8;
+      }
+
+      .puya-stage-content {
+        font-size: 1em;
+        line-height: 1.7;
+      }
+
+      .puya-stage-content p {
+        margin: 3% 0;
+        padding: 3%;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-weight: bold;
+        backdrop-filter: blur(5px);
+      }
+
+      .puya-stage-content strong {
+        font-style: italic;
+        opacity: 0.95;
+      }
+
+      .puya-stage-tools {
+        margin: 3% 0;
+        padding: 2%;
+        border-radius: 8px;
+        font-size: 0.9em;
+        font-style: italic;
+        opacity: 0.8;
+      }
+
+      .puya-stage:nth-child(odd) {
+        border-left: 4px solid;
+      }
+
+      .puya-stage:nth-child(even) {
+        border-right: 4px solid;
+      }
+
+      /* Why section */
+      .why-section {
+        margin: 8% 0;
+        padding: 5%;
+        text-align: center;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+      }
+
+      .why-title {
+        font-size: 2em;
+        margin: 0 0 4% 0;
+        font-weight: bold;
+      }
+
+      .why-content {
+        font-size: 1.1em;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Footer essence */
+      .essence-footer {
+        margin: 8% 0 4% 0;
+        padding: 5%;
+        text-align: center;
+        border-radius: 12px;
+        border: 2px solid;
+      }
+
+      .essence-title {
+        font-size: 2.2em;
+        margin: 0 0 3% 0;
+        font-weight: bold;
+      }
+
+      .essence-text {
+        font-size: 1.3em;
+        line-height: 1.8;
+        margin: 2% 0;
+      }
+
+      .essence-tag {
+        font-size: 1em;
+        margin: 4% 0 0 0;
+        opacity: 0.8;
+        letter-spacing: 0.1em;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        border-bottom: 2px solid;
+        padding: 1% 0;
+        transition: all 0.3s ease;
+        background: rgba(0, 0, 17, 0.8);
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.3),
+          0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-size: 1.2em;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .nav-logo:hover {
+        text-shadow: 0 0 10px currentColor;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2em;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        font-size: 0.9em;
+        font-weight: 500;
+        padding: 0.5em 1em;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        display: block;
+      }
+
+      .nav-link:hover {
+        border-color: currentColor;
+        box-shadow: 0 0 25px rgba(255, 0, 255, 0.6),
+          0 0 15px rgba(0, 255, 255, 0.4), inset 0 0 10px rgba(255, 255, 0, 0.2);
+        transform: translateY(-3px);
+        background: rgba(255, 0, 255, 0.1);
+        text-shadow: 0 0 10px currentColor;
+      }
+
+      .nav-link.active {
+        border-color: currentColor;
+        box-shadow: 0 0 30px rgba(255, 0, 255, 0.8),
+          0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 15px rgba(255, 255, 0, 0.3);
+        background: rgba(0, 255, 255, 0.1);
+        text-shadow: 0 0 15px currentColor;
+      }
+
+      /* Mobile menu */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5em;
+        border: none;
+        background: transparent;
+        gap: 4px;
+      }
+
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Smooth scrolling offset for fixed navbar */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      .container {
+        margin-top: 80px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: flex;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          backdrop-filter: blur(20px);
+          border-bottom: 1px solid;
+          padding: 2em 5%;
+          gap: 1em;
+          transform: translateY(-100%);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        .nav-menu.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .nav-link {
+          padding: 1em;
+          text-align: center;
+          font-size: 1em;
+        }
+
+        .glitch-title {
+          font-size: 2em;
+        }
+
+        .subtitle {
+          font-size: 1.1em;
+        }
+
+        .section-title {
+          font-size: 1.5em;
+        }
+
+        .container {
+          padding: 6% 5%;
+          margin-top: 70px;
+        }
+
+        .nav-container {
+          padding: 0 5%;
+        }
+
+        .nav-logo {
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .glitch-title {
+          font-size: 1.5em;
+        }
+
+        .nav-logo {
+          font-size: 0.9em;
+        }
+
+        .container {
+          margin-top: 60px;
+        }
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="cyber-grid"></div>
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo" id="nav-logo">TRIRATNA</a>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" data-section="home">INICIO</a>
+          </li>
+          <li class="nav-item">
+            <a href="#section-1" class="nav-link" data-section="buda">BUDA</a>
+          </li>
+          <li class="nav-item">
+            <a href="#section-2" class="nav-link" data-section="dharma"
+              >DHARMA</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#section-3" class="nav-link" data-section="sangha"
+              >SANGHA</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#refugio-section" class="nav-link" data-section="refugio"
+              >REFUGIO</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#puya-section" class="nav-link" data-section="puya"
+              >PUYA</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#why-section" class="nav-link" data-section="why"
+              >¿POR QUÉ?</a
+            >
+          </li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle">
+          <span></span> <span></span> <span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="logo-section">
+      <img
+        src="https://raw.githubusercontent.com/delulutrendestudio/lastresjoyas/refs/heads/main/clancylogo.png"
+        alt="Clancy Logo"
+        class="clancy-logo"
+        onerror="this.style.display='none';"
+      />
+    </div>
+    <div class="container" id="home">
+      <header>
+        <h1 class="glitch-title" id="main-title" data-text="triratna vibe">
+          triratna vibe
+        </h1>
+        <p class="subtitle" id="subtitle">
+          Una articulación de práctica, intención y estética
+        </p>
+        <div class="intro-text" id="intro-text">
+          La experiencia creativa detrás de Clancy Pink Punk y Vibe Coding no
+          solo es tecnológica o estética. Tiene raíces en un mapa interior:
+          Triratna, las "Tres Joyas" del budismo —Buda, Dharma, Sangha—
+          reinterpretadas como brújulas para el camino creativo contemporáneo.
+        </div>
+      </header>
+      <section class="section-card" id="section-1">
+        <h2 class="section-title" id="section1-title">
+          1 — Buda: la mente despierta
+        </h2>
+        <p class="section-subtitle">(Conciencia creativa como fuente)</p>
+        <div class="section-content">
+          <p>En Triratna, Buda representa la posibilidad de despertar.</p>
+          <p>
+            En mi práctica, este despertar no es trascendental ni doctrinal: es
+            un estado mental sensible donde la percepción se expande — lo que
+            llamas Flow Loops, Vibe Coding, o Code Meditation.
+          </p>
+          <p>Es un acercamiento al samadhi suave, donde:</p>
+          <ul>
+            <li>la programación se vuelve acto meditativo,</li>
+            <li>el yo funcional se disuelve,</li>
+            <li>el cuerpo entra en ritmo con la lógica.</li>
+          </ul>
+          <p>
+            No se trata de "ser un maestro espiritual", sino de reconocer: hay
+            inteligencia en la quietud, hay visión cuando la mente no exige.
+          </p>
+          <p>
+            Este Buda interior sostiene tu estética: Neón suave, trance,
+            rituales creativos, tecnología como extensión de la atención.
+          </p>
+        </div>
+      </section>
+      <section class="section-card" id="section-2">
+        <h2 class="section-title" id="section2-title">
+          2 — Dharma: la verdad en proceso
+        </h2>
+        <p class="section-subtitle">
+          (Código como práctica, estética como enseñanza)
+        </p>
+        <div class="section-content">
+          <p>Dharma es el camino, la enseñanza viva.</p>
+          <p>En mi universo cultural, el Dharma se manifiesta como:</p>
+          <ul>
+            <li>La disciplina del debugging como autoindagación.</li>
+            <li>La elegancia del zen aplicada a lógica.</li>
+            <li>El reconocimiento de que error y belleza conviven.</li>
+            <li>
+              El código como poesía funcional —claro, preciso, consciente.
+            </li>
+          </ul>
+          <p>
+            No busco escribir "lo correcto", sino lo verdadero dentro del
+            proceso.
+          </p>
+          <p>
+            El Dharma aparece cuando: un bug me enseña dónde mi atención se
+            rompió, una decisión estética refleja mi estado interior, la
+            arquitectura digital expresa valores vividos: presencia, claridad,
+            experimentación.
+          </p>
+          <p>
+            Mi práctica: Diseño, código, moda, sensorialidad — son vehículos de
+            insight.
+          </p>
+        </div>
+      </section>
+      <section class="section-card" id="section-3">
+        <h2 class="section-title" id="section3-title">
+          3 — Sangha: comunidad y resonancia
+        </h2>
+        <p class="section-subtitle">(Compartir vibración, no dogma)</p>
+        <div class="section-content">
+          <p>Sangha es comunidad: quienes caminan juntos.</p>
+          <p>
+            En mi universo creativo, Sangha no es templo, sino ecosistema:
+            personas, plataformas, energías que comparten la búsqueda.
+          </p>
+          <p>Mi Sangha es híbrida, queer, digital:</p>
+          <ul>
+            <li>programadorxs sensibles,</li>
+            <li>diseñadorxs contemplativos,</li>
+            <li>artistxs punk,</li>
+            <li>
+              tecnomísticos que habitan la intersección de cuerpo, código y
+              espíritu.
+            </li>
+          </ul>
+          <p>No se unen por identidad fija sino por afinidad vibracional.</p>
+          <p>
+            La Sangha se manifiesta en: colaboración fluida, rituales creativos
+            compartidos, cuidado estético mutuo, acompañamiento en la
+            exploración.
+          </p>
+          <p>
+            Mi camino no se recorre en soledad: resuena en comunidad mínima,
+            intermitente, pero presente.
+          </p>
+        </div>
+      </section>
+      <section class="refugio-section" id="refugio-section">
+        <h2 class="refugio-title" id="refugio-title">IR A REFUGIO</h2>
+        <div class="refugio-intro">
+          <p>
+            Ir a Refugio es mi gesto central. No es rendirme: es orientarme. Es
+            recordar, una y otra vez, hacia dónde quiero vivir.
+          </p>
+        </div>
+        <div class="refugio-cards">
+          <div class="refugio-card">
+            <h3 class="refugio-card-title">Refugio en el Buda</h3>
+            <div class="refugio-card-content">
+              <p>
+                Me refugio en mi capacidad de despertar. En la posibilidad
+                luminosa que late debajo del ruido.
+              </p>
+              <p>
+                Cuando entro en Flow, cuando el código respira conmigo, cuando
+                la intuición guía mis manos, sé que estoy rozando el despertar.
+              </p>
+              <p>
+                No busco un Buda fuera; lo descubro dentro: en la claridad
+                repentina, en la calma rosa-neón que se enciende cuando dejo de
+                empujar.
+              </p>
+              <p>
+                <strong
+                  >Yo puedo despertar. Aquí. Ahora. Con glitter en los
+                  dedos.</strong
+                >
+              </p>
+            </div>
+          </div>
+          <div class="refugio-card">
+            <h3 class="refugio-card-title">Refugio en el Dharma</h3>
+            <div class="refugio-card-content">
+              <p>Me refugio en el camino que se despliega paso a paso.</p>
+              <p>
+                El Dharma, para mí, es: escribir desde la presencia, depurar
+                como autoindagación, diseñar como acto ético.
+              </p>
+              <p>
+                Cada línea de código es un recordatorio de atención; cada bug,
+                una enseñanza mostrándome dónde no estoy viendo.
+              </p>
+              <p>
+                Me refugio en el proceso, en la verdad que emerge cuando estoy
+                quieta por dentro.
+              </p>
+              <p>
+                <strong
+                  >Camino hacia lo real, aunque pique, aunque brille
+                  demasiado.</strong
+                >
+              </p>
+            </div>
+          </div>
+          <div class="refugio-card">
+            <h3 class="refugio-card-title">Refugio en la Sangha</h3>
+            <div class="refugio-card-content">
+              <p>Me refugio en quienes caminan conmigo.</p>
+              <p>
+                En las amistades que me sostienen, en las voces que me abren los
+                ojos, en los corazones que se sincronizan con mis rarezas
+                luminosas.
+              </p>
+              <p>
+                Mi Sangha son: los que crean sin pedir permiso, los que
+                programan desde el espíritu, los que aman sin molde, los que
+                buscan despertar en medio del glitter.
+              </p>
+              <p>
+                <strong>No camino sola. Nos reflejamos. Nos recordamos.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="refugio-meaning">
+          <h3 class="refugio-meaning-title">Ir a Refugio es…</h3>
+          <p>
+            volver a alinearme con lo que despierta, lo que enseña, lo que
+            acompaña.
+          </p>
+          <p>
+            No es una promesa vacía; es un movimiento interno: una dirección
+            constante.
+          </p>
+          <p>
+            Dirijo mi vida hacia la lucidez, la verdad, la amistad profunda.
+          </p>
+        </div>
+        <div class="refugio-practice">
+          <h3 class="refugio-practice-title">En mi práctica creativa</h3>
+          <p class="refugio-practice-intro">Ir a Refugio se vuelve:</p>
+          <ul class="refugio-practice-list">
+            <li>estética con raíz</li>
+            <li>punk con propósito</li>
+            <li>neón con silencio interior</li>
+            <li>código como oración</li>
+            <li>diseño como gesto compasivo</li>
+            <li>comunidad como hogar</li>
+          </ul>
+          <p class="refugio-closing">
+            Ir a Refugio es recordar quién soy cuando me olvido.
+          </p>
+          <p class="refugio-closing">
+            Es mi pausa sagrada entre compilaciones. Mi salto de línea como
+            respiración.
+          </p>
+        </div>
+      </section>
+      <section class="puya-section" id="puya-section">
+        <h2 class="puya-title" id="puya-title">🌀 Puya de las 7 Etapas</h2>
+        <p class="puya-subtitle">Flujo de trabajo Frontend / UI-UX</p>
+        <div class="puya-stages">
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">I.</span>
+              <h3 class="puya-stage-title">VENERACIÓN</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title"
+                >Descubrimiento &amp; Research</span
+              >
+            </div>
+            <p class="puya-stage-subtitle">Honro lo que ya existe</p>
+            <div class="puya-stage-content">
+              <p>
+                Antes de diseñar o escribir una línea de código,
+                <strong>escucho</strong>.
+              </p>
+              <p>
+                Me acerco al proyecto como un altar recién abierto: investigo al
+                usuario, al cliente, el contexto cultural; observo el mercado
+                como quien contempla flores brillantes.
+              </p>
+              <div class="puya-stage-tools">
+                Las "ofrendas" son mis herramientas: entrevistas, benchmarks,
+                moodboards, datos.
+              </div>
+              <p>
+                Reconozco que no creo desde el vacío — venero el conocimiento
+                previo, las referencias, el linaje del diseño y la tecnología.
+              </p>
+            </div>
+          </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">II.</span>
+              <h3 class="puya-stage-title">SALUDO REVERENTE</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title"
+                >Empatía &amp; Mapeo del Usuario</span
+              >
+            </div>
+            <p class="puya-stage-subtitle">
+              Reconozco al usuario como si fuera un maestro
+            </p>
+            <div class="puya-stage-content">
+              <p>
+                Con respeto diseño para personas reales. Me inclino ante sus
+                necesidades, miedos, deseos.
+              </p>
+              <div class="puya-stage-tools">
+                Personas, user journeys, escenarios son mis "reverencias".
+              </div>
+              <p>
+                Visito los espacios donde habitan: sus rutinas, sus dolores. El
+                usuario es mi Bodhisattva:
+                <strong>no lo fuerzo—le escucho</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">III.</span>
+              <h3 class="puya-stage-title">IR A REFUGIO</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title">Definición &amp; Enfoque</span>
+            </div>
+            <p class="puya-stage-subtitle">Me comprometo con lo esencial</p>
+            <div class="puya-stage-content">
+              <p>En el caos del proyecto elijo una dirección.</p>
+              <p>Me refugio en tres joyas del diseño:</p>
+              <p>
+                <strong>Buda</strong> → visión del producto<br /><strong
+                  >Dharma</strong
+                >
+                → principios / requerimientos<br /><strong>Sangha</strong> →
+                equipo
+              </p>
+              <p>
+                Defino el problema, la propuesta de valor, los objetivos de la
+                experiencia.
+              </p>
+              <p>
+                Así como recito refugio, aquí establezco la intención:
+                <strong>¿para qué y hacia dónde diseñamos?</strong>
+              </p>
+            </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">IV.</span>
+              <h3 class="puya-stage-title">CONFESIÓN DE FALTAS</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title">Iteración &amp; Debugging</span>
+            </div>
+            <p class="puya-stage-subtitle">Veo mis errores sin miedo</p>
+            <div class="puya-stage-content">
+              <p>Prototipo. Testeo. Me equivoco mil veces.</p>
+              <p>
+                Confieso mis fallas ante la interfaz: bugs, mala arquitectura,
+                decisiones egoístas.
+              </p>
+              <p><strong>No me apego. Depuro.</strong></p>
+              <p>
+                Entiendo que el error es maestro y la iteración es penitencia
+                creativa.
+              </p>
+              <p>Al depurar, no rechazo: acepto y transformo.</p>
+            </div>
+          </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">V.</span>
+              <h3 class="puya-stage-title">REGOCIJO EN LOS MÉRITOS</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title">Validación &amp; Aprendizaje</span>
+            </div>
+            <p class="puya-stage-subtitle">Celebro lo que funciona</p>
+            <div class="puya-stage-content">
+              <p>
+                Me regocijo en los hallazgos: las pantallas que fluyen, el
+                feedback positivo, la accesibilidad lograda.
+              </p>
+              <p>
+                Celebro las mejoras, las buenas decisiones, las funcionalidades
+                que se sienten vivas.
+              </p>
+              <p>
+                Agradezco todo lo que me enseñó el proceso:
+                <strong
+                  >cada bug, cada hallazgo UX, cada mini-iluminación</strong
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">VI.</span>
+              <h3 class="puya-stage-title">SÚPLICA Y RUEGO</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title"
+                >Lanzamiento &amp; Documentación</span
+              >
+            </div>
+            <p class="puya-stage-subtitle">Pido continuidad al proyecto</p>
+            <div class="puya-stage-content">
+              <p>Antes de entregar, pido por su bienestar.</p>
+              <p>
+                Creo documentación, refino accesibilidad, preparo handover al
+                equipo.
+              </p>
+              <p>
+                Suplico que el proyecto viva tiempo suficiente para beneficiar a
+                quienes lo usen.
+              </p>
+              <div class="puya-stage-tools">
+                Ruegos = QA, feedback loops, soporte.
+              </div>
+              <p>
+                <strong
+                  >Deseo que quienes hereden este código encuentren claridad y
+                  belleza en él.</strong
+                >
+              </p>
+            </div>
+          </div>
+          <div class="puya-stage">
+            <div class="puya-stage-header">
+              <span class="puya-stage-number">VII.</span>
+              <h3 class="puya-stage-title">TRANSFERENCIA DE MÉRITOS</h3>
+              <span class="puya-stage-arrow">→</span>
+              <span class="puya-stage-title">Comunidad &amp; Open Source</span>
+            </div>
+            <p class="puya-stage-subtitle">
+              Ofrezco mi trabajo para beneficio de otros
+            </p>
+            <div class="puya-stage-content">
+              <p>
+                Entrego el resultado: al cliente, a la comunidad, al universo
+                digital.
+              </p>
+              <p>
+                Comparto: componentes, aprendizajes, frameworks, repositorios.
+              </p>
+              <p><strong>Libero mis méritos: ya no me pertenecen.</strong></p>
+              <p>
+                Que el diseño beneficie: que facilite, que sane, que conecte.
+              </p>
+              <p>Mi obra continúa en otras manos; así yo también continúo.</p>
+            </div>
+          </div>
+        </div>
+    <script>
+      const defaultConfig = {
+        background_color: "#000011",
+        neon_pink: "#ff0080",
+        neon_cyan: "#00ffff",
+        neon_purple: "#ffff00",
+        text_color: "#ffffff",
+        font_family: "Courier New",
+        font_size: 16,
+        main_title: "triratna vibe",
+        subtitle: "Una articulación de práctica, intención y estética",
+        intro_text:
+          'La experiencia creativa detrás de Clancy Pink Punk y Vibe Coding no solo es tecnológica o estética. Tiene raíces en un mapa interior: Triratna, las "Tres Joyas" del budismo —Buda, Dharma, Sangha— reinterpretadas como brújulas para el camino creativo contemporáneo.',
+        section1_title: "1 — Buda: la mente despierta",
+        section2_title: "2 — Dharma: la verdad en proceso",
+        section3_title: "3 — Sangha: comunidad y resonancia",
+        footer_text:
+          "Eres flujo despierto (Buda) que se expresa en prácticas conscientes (Dharma) y se nutre de resonancias compartidas (Sangha)",
+      };
+
+      async function onConfigChange(config) {
+        const baseSize = config.font_size || defaultConfig.font_size;
+        const customFont = config.font_family || defaultConfig.font_family;
+        const baseFontStack = "monospace";
+        const fontFamily = `${customFont}, ${baseFontStack}`;
+
+        const backgroundColor =
+          config.background_color || defaultConfig.background_color;
+        const neonPink = config.neon_pink || defaultConfig.neon_pink;
+        const neonCyan = config.neon_cyan || defaultConfig.neon_cyan;
+        const neonPurple = config.neon_purple || defaultConfig.neon_purple;
+        const textColor = config.text_color || defaultConfig.text_color;
+
+        document.body.style.backgroundColor = backgroundColor;
+        document.body.style.color = textColor;
+        document.body.style.fontFamily = fontFamily;
+        document.body.style.fontSize = `${baseSize}px`;
+
+        document.getElementById("main-title").textContent =
+          config.main_title || defaultConfig.main_title;
+        document.getElementById("main-title").style.color = neonPink;
+        document.getElementById("main-title").style.fontSize = `${
+          baseSize * 1.875
+        }px`;
+        document.getElementById("main-title").style.fontFamily = fontFamily;
+
+        document.getElementById("subtitle").textContent =
+          config.subtitle || defaultConfig.subtitle;
+        document.getElementById("subtitle").style.color = neonCyan;
+        document.getElementById("subtitle").style.fontSize = `${
+          baseSize * 1.3
+        }px`;
+        document.getElementById("subtitle").style.fontFamily = fontFamily;
+
+        document.getElementById("intro-text").textContent =
+          config.intro_text || defaultConfig.intro_text;
+        document.getElementById("intro-text").style.borderLeftColor =
+          neonPurple;
+        document.getElementById("intro-text").style.fontSize = `${
+          baseSize * 1.1
+        }px`;
+        document.getElementById("intro-text").style.fontFamily = fontFamily;
+
+        const sections = [
+          {
+            id: "section-1",
+            titleId: "section1-title",
+            configKey: "section1_title",
+            color: neonPink,
+          },
+          {
+            id: "section-2",
+            titleId: "section2-title",
+            configKey: "section2_title",
+            color: neonCyan,
+          },
+          {
+            id: "section-3",
+            titleId: "section3-title",
+            configKey: "section3_title",
+            color: neonPurple,
+          },
+        ];
+
+        sections.forEach((section) => {
+          const card = document.getElementById(section.id);
+          const title = document.getElementById(section.titleId);
+
+          card.style.borderColor = section.color;
+          card.style.fontFamily = fontFamily;
+          card.querySelector(
+            ".section-content"
+          ).style.fontSize = `${baseSize}px`;
+
+          title.textContent =
+            config[section.configKey] || defaultConfig[section.configKey];
+          title.style.color = section.color;
+          title.style.fontSize = `${baseSize * 1.8}px`;
+          title.style.fontFamily = fontFamily;
+
+          const subtitle = card.querySelector(".section-subtitle");
+          subtitle.style.fontSize = `${baseSize * 1.1}px`;
+          subtitle.style.fontFamily = fontFamily;
+
+          const listItems = card.querySelectorAll("li::before");
+          card.querySelectorAll("li").forEach((li) => {
+            li.style.fontSize = `${baseSize}px`;
+          });
+        });
+
+        const whySection = document.querySelector(".why-section");
+        whySection.style.borderTopColor = neonPink;
+        whySection.style.borderBottomColor = neonCyan;
+        whySection.style.fontFamily = fontFamily;
+
+        const whyTitle = whySection.querySelector(".why-title");
+        whyTitle.style.color = neonPurple;
+        whyTitle.style.fontSize = `${baseSize * 2}px`;
+        whyTitle.style.fontFamily = fontFamily;
+
+        whySection.querySelector(".why-content").style.fontSize = `${
+          baseSize * 1.1
+        }px`;
+
+        // Update refugio section
+        const refugioSection = document.querySelector(".refugio-section");
+        if (refugioSection) {
+          refugioSection.style.borderColor = neonPurple;
+          refugioSection.style.fontFamily = fontFamily;
+
+          const refugioTitle = document.getElementById("refugio-title");
+          if (refugioTitle) {
+            refugioTitle.style.color = neonPink;
+            refugioTitle.style.fontSize = `${baseSize * 2.5}px`;
+            refugioTitle.style.fontFamily = fontFamily;
+          }
+
+          const refugioIntro = refugioSection.querySelector(".refugio-intro");
+          if (refugioIntro) {
+            refugioIntro.style.backgroundColor = `${neonPurple}11`;
+            refugioIntro.style.fontSize = `${baseSize * 1.2}px`;
+          }
+
+          const refugioCards = refugioSection.querySelectorAll(".refugio-card");
+          refugioCards.forEach((card, index) => {
+            const colors = [neonPink, neonCyan, neonPurple];
+            card.style.borderColor = colors[index % 3];
+
+            const cardTitle = card.querySelector(".refugio-card-title");
+            if (cardTitle) {
+              cardTitle.style.color = colors[index % 3];
+              cardTitle.style.fontSize = `${baseSize * 1.4}px`;
+            }
+
+            card.querySelector(
+              ".refugio-card-content"
+            ).style.fontSize = `${baseSize}px`;
+          });
+
+          const refugioMeaning =
+            refugioSection.querySelector(".refugio-meaning");
+          if (refugioMeaning) {
+            refugioMeaning.style.borderColor = neonCyan;
+            refugioMeaning.style.backgroundColor = `${neonCyan}08`;
+
+            const meaningTitle = refugioMeaning.querySelector(
+              ".refugio-meaning-title"
+            );
+            if (meaningTitle) {
+              meaningTitle.style.color = neonCyan;
+              meaningTitle.style.fontSize = `${baseSize * 1.6}px`;
+            }
+
+            refugioMeaning.querySelectorAll("p").forEach((p) => {
+              p.style.fontSize = `${baseSize * 1.1}px`;
+            });
+          }
+
+          const refugioPractice =
+            refugioSection.querySelector(".refugio-practice");
+          if (refugioPractice) {
+            refugioPractice.style.borderColor = neonPink;
+            refugioPractice.style.backgroundColor = `${neonPink}08`;
+
+            const practiceTitle = refugioPractice.querySelector(
+              ".refugio-practice-title"
+            );
+            if (practiceTitle) {
+              practiceTitle.style.color = neonPink;
+              practiceTitle.style.fontSize = `${baseSize * 1.6}px`;
+            }
+
+            const practiceIntro = refugioPractice.querySelector(
+              ".refugio-practice-intro"
+            );
+            if (practiceIntro) {
+              practiceIntro.style.fontSize = `${baseSize * 1.1}px`;
+            }
+
+            const practiceItems = refugioPractice.querySelectorAll(
+              ".refugio-practice-list li"
+            );
+            practiceItems.forEach((item, index) => {
+              const colors = [neonPink, neonCyan, neonPurple];
+              item.style.borderColor = colors[index % 3];
+              item.style.backgroundColor = `${colors[index % 3]}11`;
+              item.style.fontSize = `${baseSize}px`;
+            });
+
+            refugioPractice
+              .querySelectorAll(".refugio-closing")
+              .forEach((closing) => {
+                closing.style.fontSize = `${baseSize * 1.1}px`;
+              });
+          }
+        }
+
+        // Update puya section
+        const puyaSection = document.querySelector(".puya-section");
+        if (puyaSection) {
+          puyaSection.style.borderColor = neonCyan;
+          puyaSection.style.fontFamily = fontFamily;
+
+          const puyaTitle = document.getElementById("puya-title");
+          if (puyaTitle) {
+            puyaTitle.style.color = neonPink;
+            puyaTitle.style.fontSize = `${baseSize * 2.2}px`;
+            puyaTitle.style.fontFamily = fontFamily;
+          }
+
+          const puyaSubtitle = puyaSection.querySelector(".puya-subtitle");
+          if (puyaSubtitle) {
+            puyaSubtitle.style.color = neonCyan;
+            puyaSubtitle.style.fontSize = `${baseSize * 1.4}px`;
+            puyaSubtitle.style.fontFamily = fontFamily;
+          }
+
+          const puyaStages = puyaSection.querySelectorAll(".puya-stage");
+          puyaStages.forEach((stage, index) => {
+            const colors = [neonPink, neonCyan, neonPurple];
+            const stageColor = colors[index % 3];
+
+            stage.style.borderColor = stageColor;
+            stage.style.fontFamily = fontFamily;
+
+            const stageNumber = stage.querySelector(".puya-stage-number");
+            if (stageNumber) {
+              stageNumber.style.color = stageColor;
+              stageNumber.style.fontSize = `${baseSize * 1.8}px`;
+            }
+
+            const stageTitles = stage.querySelectorAll(".puya-stage-title");
+            stageTitles.forEach((title) => {
+              title.style.color = stageColor;
+              title.style.fontSize = `${baseSize * 1.3}px`;
+            });
+
+            const stageSubtitle = stage.querySelector(".puya-stage-subtitle");
+            if (stageSubtitle) {
+              stageSubtitle.style.fontSize = `${baseSize * 1.1}px`;
+            }
+
+            const stageContent = stage.querySelector(".puya-stage-content");
+            if (stageContent) {
+              stageContent.style.fontSize = `${baseSize}px`;
+            }
+
+            const stageTools = stage.querySelector(".puya-stage-tools");
+            if (stageTools) {
+              stageTools.style.backgroundColor = `${stageColor}08`;
+              stageTools.style.fontSize = `${baseSize * 0.9}px`;
+            }
+          });
+        }
+
+        const footer = document.querySelector(".essence-footer");
+        footer.style.borderColor = neonPink;
+        footer.style.fontFamily = fontFamily;
+
+        const essenceTitle = footer.querySelector(".essence-title");
+        essenceTitle.style.color = neonCyan;
+        essenceTitle.style.fontSize = `${baseSize * 2.2}px`;
+        essenceTitle.style.fontFamily = fontFamily;
+
+        document.getElementById("footer-text").textContent =
+          config.footer_text || defaultConfig.footer_text;
+        document.getElementById("footer-text").style.fontSize = `${
+          baseSize * 1.3
+        }px`;
+
+        footer.querySelector(".essence-tag").style.color = neonPurple;
+        footer.querySelector(".essence-tag").style.fontSize = `${baseSize}px`;
+
+        // Update navbar styles
+        const navbar = document.getElementById("navbar");
+        const navLogo = document.getElementById("nav-logo");
+        const navMenu = document.getElementById("nav-menu");
+        const navToggle = document.getElementById("nav-toggle");
+
+        if (navbar) {
+          navbar.style.borderBottomColor = neonPink;
+          navbar.style.fontFamily = fontFamily;
+        }
+
+        if (navLogo) {
+          navLogo.style.color = neonPink;
+          navLogo.style.fontFamily = fontFamily;
+          navLogo.style.fontSize = `${baseSize * 1.2}px`;
+        }
+
+        if (navMenu) {
+          navMenu.style.borderBottomColor = neonCyan;
+          navMenu.style.fontFamily = fontFamily;
+        }
+
+        if (navToggle) {
+          const toggleSpans = navToggle.querySelectorAll("span");
+          toggleSpans.forEach((span) => {
+            span.style.backgroundColor = neonPink;
+          });
+        }
+
+        const navLinksAll = document.querySelectorAll(".nav-link");
+        navLinksAll.forEach((link) => {
+          link.style.color = textColor;
+          link.style.fontFamily = fontFamily;
+          link.style.fontSize = `${baseSize * 0.9}px`;
+        });
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () =>
+                config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+            },
+            {
+              get: () => config.neon_pink || defaultConfig.neon_pink,
+              set: (value) => {
+                config.neon_pink = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ neon_pink: value });
+                }
+              },
+            },
+            {
+              get: () => config.neon_cyan || defaultConfig.neon_cyan,
+              set: (value) => {
+                config.neon_cyan = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ neon_cyan: value });
+                }
+              },
+            },
+            {
+              get: () => config.neon_purple || defaultConfig.neon_purple,
+              set: (value) => {
+                config.neon_purple = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ neon_purple: value });
+                }
+              },
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["main_title", config.main_title || defaultConfig.main_title],
+          ["subtitle", config.subtitle || defaultConfig.subtitle],
+          ["intro_text", config.intro_text || defaultConfig.intro_text],
+          [
+            "section1_title",
+            config.section1_title || defaultConfig.section1_title,
+          ],
+          [
+            "section2_title",
+            config.section2_title || defaultConfig.section2_title,
+          ],
+          [
+            "section3_title",
+            config.section3_title || defaultConfig.section3_title,
+          ],
+          ["footer_text", config.footer_text || defaultConfig.footer_text],
+        ]);
+      }
+
+      // Navbar functionality
+      const navToggle = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      // Mobile menu toggle
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Active link highlighting on scroll
+      function updateActiveLink() {
+        const sections = [
+          "home",
+          "section-1",
+          "section-2",
+          "section-3",
+          "refugio-section",
+          "puya-section",
+          "why-section",
+        ];
+        const scrollPos = window.scrollY + 150;
+
+        sections.forEach((sectionId) => {
+          const section = document.getElementById(sectionId);
+          const link = document.querySelector(
+            `[data-section="${
+              sectionId === "section-1"
+                ? "buda"
+                : sectionId === "section-2"
+                ? "dharma"
+                : sectionId === "section-3"
+                ? "sangha"
+                : sectionId === "refugio-section"
+                ? "refugio"
+                : sectionId === "puya-section"
+                ? "puya"
+                : sectionId === "why-section"
+                ? "why"
+                : "home"
+            }"]`
+          );
+
+          if (section && link) {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+              scrollPos >= sectionTop &&
+              scrollPos < sectionTop + sectionHeight
+            ) {
+              navLinks.forEach((l) => l.classList.remove("active"));
+              link.classList.add("active");
+            }
+          }
+        });
+      }
+
+      // Update active link on scroll
+      window.addEventListener("scroll", updateActiveLink);
+
+      // Set initial active link
+      updateActiveLink();
+
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'99ab6a87329fa0ab',t:'MTc2MjUwMzY3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
